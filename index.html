@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="style/style.css">
+    <title>Form Validation</title>
+  </head>
+  <body>
+      <form>
+          <h1>Create new account</h1>
+          <div class="input-wrap">
+              <input type="text" name="name" autocomplete="off" required>
+              <label for="name" class="label-name">
+                  <span class="content-name">Full Name</span>
+              </label>
+          </div>
+          
+          <div class="input-wrap">
+              <input type="email" name="email" autocomplete="off" required>
+              <label for="email" class="label-name">
+                  <span class="content-name">Email Address</span>
+              </label>
+          </div>
+          
+          <div class="input-wrap">
+              <div class="eye-img show-password-1" onclick="togglePassword1()" title="Show Password">
+                  <img class="close-eye" src="images/eye-close.png">
+                  <img class="open-eye" src="images/eye-open.png">
+              </div>
+              <input type="password" name="password" id="password-input-1" autocomplete="off" onfocus="showRequirements();" required>
+              <label for="password" class="label-name">
+                  <span class="content-name">Password</span>
+              </label>
+          </div>
+          <ul id="password-requirements">
+              <div class="container-fluid">
+                  <div class="row">
+                      <div class="col-12 one"><li>Must be 8 characters long</li></div>
+                      <div class="col-12 two"><li>Must contain at least 1 number</li></div>
+                  </div>
+                  <div class="row">
+                      <div class="col-12 three"><li>Must contain at least 1 lowercase</li></div>
+                      <div class="col-12 four"><li>Must contain at least 1 uppercase</li></div>
+                  </div>
+              </div>
+          </ul>
+          
+          <div class="input-wrap">
+              <div class="eye-img show-password-2" onclick="togglePassword2()" title="Show Password">
+                  <img class="close-eye" src="images/eye-close.png">
+                  <img class="open-eye" src="images/eye-open.png">
+              </div>
+              <input type="password" name="confirm-password" id="password-input-2" autocomplete="off" required>
+              <label for="confirm-password" class="label-name">
+                  <span class="content-name">Confirm Password</span>
+              </label>
+          </div>
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-12 px-0">
+                      <input type="submit" value="Sign Up" id="sign-up">
+                  </div>
+                  <div class="col-12 px-0">
+                      <p class="login-text">Already have an account? <a href="#">Sign In here</a></p>
+                  </div>
+              </div>
+          </div>
+      </form>
+      <footer>
+          By <a href="#">AnupsDesign</a>
+      </footer>
+  </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script> 
+    <script>
+        $('.show-password-1').click(function(){
+            $('.show-password-1 .close-eye').toggleClass('hide-img')
+        })
+        $('.show-password-2').click(function(){
+            $('.show-password-2 .close-eye').toggleClass('hide-img')
+        })
+    </script>
+    <script>
+        function togglePassword1() {
+            var x = document.getElementById("password-input-1");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+        function togglePassword2() {
+            var x = document.getElementById("password-input-2");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+        function showRequirements(){
+            $('#password-requirements').css("display","block")
+        }
+    </script>
+</html>
